@@ -3,6 +3,7 @@ import Router from "./Router";
 import config from "../../config"
 import bodyparser from "body-parser"
 import "colors"
+import runCrontab from "./crontab/runCrontab";
 (() => {
     const app = express();
 
@@ -21,6 +22,9 @@ import "colors"
 
     //Config routing map.
     Router(app);
+
+    //Run crontab
+    runCrontab();
 
     //Start server
     app.listen(config.backendPort, () => {
