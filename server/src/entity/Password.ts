@@ -16,6 +16,7 @@ export default class Password {
     value: string;
 
     static async repo(): Promise<Repository<Password>> {
-        return getDBConnection("password").getRepository(Password);
+        return (await getDBConnection("password"))
+            .getRepository(Password);
     }
 }
